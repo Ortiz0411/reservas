@@ -7,8 +7,6 @@ router.get('/service/getServices', getService)
 
 router.post('/service/postService', postService)
 
-router.delete('/service/deleteService', deleteService)
-
 router.get('/service/service', )
 
 router.put('/service/service', )

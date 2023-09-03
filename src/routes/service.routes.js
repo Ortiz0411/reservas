@@ -1,5 +1,5 @@
 import {Router} from "express";
-import { getService, postService, deleteService } from '../controllers/service.controller'
+import { getService, postService, deleteService, updateService } from '../controllers/service.controller'
 
 const router = Router()
 
@@ -7,8 +7,8 @@ router.get('/service/getServices', getService)
 
 router.post('/service/postService', postService)
 
-router.get('/service/service', )
+router.delete('/service/deleteservice', deleteService)
 
-router.put('/service/service', )
+router.put('/service/updateService', updateService)
 
 export default router

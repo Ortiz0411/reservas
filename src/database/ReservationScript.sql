@@ -25,6 +25,7 @@ GO
 
 CREATE TABLE [dbo].[Agency](
 	[id] [int] IDENTITY(1,1) NOT NULL,
+	[user] [int] NOT NULL, 
 	[name] [varchar](45) NOT NULL,
 	[email] [varchar](45) NOT NULL,
 	[tel] [varchar](15) NOT NULL,
@@ -55,10 +56,14 @@ CREATE TABLE [dbo].[Service](
 GO
 
 CREATE TABLE [dbo].[ServicesDetails](
+	[id] [int] IDENTITY(1,1) NOT NULL,
 	[reservation] [int] NOT NULL,
 	[service] [int] NOT NULL,
 	[pax] [int] NOT NULL,
-	[time] [datetime] NOT NULL
+	[time] [datetime] NOT NULL,
+	[price] [float] NOT NULL,
+	[tax] [int] NOT NULL,
+	PRIMARY KEY (id)
 )
 GO
 
@@ -86,6 +91,10 @@ CREATE TABLE [dbo].[BillDetails](
 	[rawPrice] [float] NOT NULL,
 	[netPrice] [float] NOT NULL
 ) 
+GO
+
+ALTER TABLE [dbo].[Agency] WITH CHECK ADD CONSTRAINT [fk_agency_user] FOREIGN KEY([user])
+REFERENCES [dbo].[User] ([id])
 GO
 
 ALTER TABLE [dbo].[Reservation] WITH CHECK ADD CONSTRAINT [fk_reservation_client] FOREIGN KEY([client])

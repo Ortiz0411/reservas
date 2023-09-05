@@ -48,17 +48,20 @@ class App extends Component{
     }).catch(error=>{
       console.log(error.message);
     })
-  }
+  };
 
 
-  peticionPut=()=>{
-    axios.put(url+"updateService"+this.state.form.id, this.state.form).then(response=>{
-      this.modalInsertar();
-      this.get();
-    }).catch(error=>{
-      console.log(error.message);
-    })
-  }
+  peticionPut = () => {
+    axios
+      .put(url + "updateService/" + this.state.form.id, this.state.form)
+      .then((response) => {
+        this.modalInsertar();
+        this.get();
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
 
   peticionDelete=()=>{
@@ -162,9 +165,6 @@ class App extends Component{
                 </ModalHeader>
                 <ModalBody>
                   <div className="form-group">
-                    <label htmlFor="id">Id del servicio</label>
-                    <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id: this.state.data.length+1}/>
-                    <br />
                     <label htmlFor="name">Nombre del servicio</label>
                     <input className="form-control" type="text" name="name" id="name" onChange={this.handleChange} value={form?form.name : ''}/>
                     <br />
@@ -191,7 +191,7 @@ class App extends Component{
                 
                     <button className="btn btn-success" onClick={()=>this.peticionPost()}>
                     Insertar
-                  </button>: <button className="btn btn-primary" onClick={()=>this.peticionPost()}>
+                  </button>: <button className="btn btn-primary" onClick={()=>this.peticionPut()}>
                     Actualizar
                   </button>
             }

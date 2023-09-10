@@ -1,9 +1,11 @@
 import {Router} from "express";
-import { getService, addService, deleteService, updateService } from '../controllers/service.controller'
+import { getService, addService, deleteService, updateService, getByText, findByName } from '../controllers/service.controller'
 
 const router = Router()
 
 router.get('/service/getServices', getService)
+
+router.get('/service/findByName', findByName)
 
 router.post('/service/addService', addService)
 

@@ -9,6 +9,18 @@ export const getService = async (req, res) => {
     pool.close();
 };
 
+export const findByName = async(req, res) => {
+    const pool = await getConnection();
+    const text = req.query.text || '';
+
+    const result = await pool
+      .request()
+      .input('text', sql.VarChar(45), text)
+      .execute('findByName');
+
+    res.json(result.recordset);
+    pool.close();
+};
 
 export const addService = async (req, res) => {
     const pool = await getConnection();

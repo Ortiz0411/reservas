@@ -5,7 +5,7 @@ const router = Router()
 
 router.get('/service/getServices', getService)
 
-router.get('/service/findByName', findByName)
+router.get('/service/findByName/:text', findByName)
 
 router.post('/service/addService', addService)
 

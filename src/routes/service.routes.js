@@ -1,16 +1,20 @@
 import {Router} from "express";
 import { getService, addService, deleteService, updateService, getByText, findByName } from '../controllers/service.controller'
+import { addClient, getClients, getClient } from "../controllers/client.controller";
 
 const router = Router()
 
-router.get('/service/getServices', getService)
+//Client
+router.post('/client/addClient', addClient);
+router.get('/client/getClients', getClients);
+router.get('/client/getClient/:text', getClient);
 
-router.get('/service/findByName/:text', findByName)
 
-router.post('/service/addService', addService)
-
-router.delete('/service/deleteService/:id', deleteService)
-
-router.put('/service/updateService/:id', updateService)
+//Service
+router.get('/service/getServices', getService);
+router.get('/service/findByName/:text', findByName);
+router.post('/service/addService', addService);
+router.delete('/service/deleteService/:id', deleteService);
+router.put('/service/updateService/:id', updateService);
 
 export default router

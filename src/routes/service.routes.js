@@ -2,6 +2,7 @@ import {Router} from "express";
 import { getService, addService, deleteService, updateService, getByText, findByName } from '../controllers/service.controller'
 import { addClient, getClients, getClient } from "../controllers/client.controller";
 import { addResClient } from "../controllers/reservation.controller";
+import { addServiceDetail } from "../controllers/servicedet.controller";
 
 const router = Router()
 
@@ -19,5 +20,8 @@ router.get('/service/findByName/:text', findByName);
 router.post('/service/addService', addService);
 router.delete('/service/deleteService/:id', deleteService);
 router.put('/service/updateService/:id', updateService);
+
+//ServiceDetails
+router.post('/serviceDet/addSerDet', addServiceDetail);
 
 export default router

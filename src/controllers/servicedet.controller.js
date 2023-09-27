@@ -13,3 +13,14 @@ export const addServiceDetail = async (req, res) => {
     res.json( {message: resultMessage});
     pool.close();
 };
+
+export const getSerDet = async (req, res) => {
+    const pool = await getConnection();
+    const result = await pool
+      .request()
+      .input('id', req.params.id)
+      .execute('GetSerDet');
+
+    res.json(result.recordset);
+    pool.close();
+}

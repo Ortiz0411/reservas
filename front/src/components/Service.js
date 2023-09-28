@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +9,7 @@ const url = "http://localhost:4000/service/";
 
 
 
-function App() {
+export function Service() {
   const [services, setServices] = useState([]);
   const [search, setSearch ] = useState("");
   const [modalInsertar, setModalInsertar] = useState(false);
@@ -214,7 +213,8 @@ function App() {
 
 
     </div>
+    
   );
 }
 
-export default App;
+export default Service;

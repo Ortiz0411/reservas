@@ -1,7 +1,7 @@
 import {Router} from "express";
 import { getService, addService, deleteService, updateService, getByText, findByName } from '../controllers/service.controller'
 import { addClient, getClients, getClient } from "../controllers/client.controller";
-import { addResClient, getResClient } from "../controllers/reservation.controller";
+import { addResClient, getResClient, getResInfo } from "../controllers/reservation.controller";
 import { addServiceDetail, getSerDet } from "../controllers/servicedet.controller";
 
 const router = Router()
@@ -15,6 +15,7 @@ router.get('/client/getClient/:text', getClient);
 //Reservation
 router.post('/reservation/addResClient', addResClient);
 router.get('/reservation/getResCli/:id', getResClient);
+router.get('/reservation/getResInfo/:id', getResInfo);
 
 //Service
 router.get('/service/getServices', getService);

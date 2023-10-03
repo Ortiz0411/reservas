@@ -34,3 +34,15 @@ export const getResClient = async(req, res) => {
   res.json(result.recordset);
   pool.close();
 };
+
+export const getResInfo = async(req, res) => {
+  const pool = await getConnection();
+
+  const result = await pool
+    .request()
+    .input('id', req.params.id)
+    .execute('GetResInfo');
+
+  res.json(result.recordset);
+  pool.close();
+};

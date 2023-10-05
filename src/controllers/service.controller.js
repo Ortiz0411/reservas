@@ -1,38 +1,25 @@
 import {getConnection, sql} from '../database/connection'
 
 
-export const getService = async (req, res) => {
+export const getServices = async (req, res) => {
     const pool = await getConnection();
-    const resul = await pool.request().execute('GetServices');
+    const resul = await pool.request().execute('pa_GetServices');
     console.log(resul);   
     res.json(resul.recordset);
     pool.close();
-};
-
-export const findByName = async(req, res) => {
-    const pool = await getConnection();
-
-    const result = await pool
-      .request()
-      .input('text', req.params.text)
-      .execute('findByName');
-
-    res.json(result.recordset);
-    pool.close();
-
 };
 
 export const addService = async (req, res) => {
     const pool = await getConnection();
     const result = await pool
     .request()
-    .input('name', req.body.name)
-    .input('category', req.body.category)
-    .input('description', req.body.description)
-    .input('rackPrice', req.body.rackPrice)
-    .input('netPrice', req.body.netPrice)
-    .input('tax', req.body.tax)
-    .execute('AddService');
+    .input('pName', req.body.pName)
+    .input('pCategory', req.body.pCategory)
+    .input('pDescription', req.body.pDescription)
+    .input('pRackPrice', req.body.pRackPrice)
+    .input('pNetPrice', req.body.pNetPrice)
+    .input('pTax', req.body.pTax)
+    .execute('pa_AddService');
 
     const resultMessage = result.recordset[0].Msg;
     res.json( {message: resultMessage});
@@ -44,8 +31,8 @@ export const deleteService = async (req, res) => {
   const pool = await getConnection();
   const result = await pool
     .request()
-    .input('id', req.params.id)
-    .execute('DeleteService');
+    .input('pId', req.params.pId)
+    .execute('pa_DeleteService');
 
     const resultMessage = result.recordset[0].Msg;
     res.json( {message: resultMessage});
@@ -58,24 +45,24 @@ export const updateService = async (req, res) => {
 
     const pool = await getConnection();
     const {
-      name,
-      category,
-      description,
-      rackPrice,
-      netPrice,
-      tax
+      pName,
+      pCategory,
+      pDescription,
+      pRackPrice,
+      pNetPrice,
+      pTax
     } = req.body;
 
     const result = await pool
       .request()
-      .input('id', id)
-      .input('name', name)
-      .input('category', category)
-      .input('description', description)
-      .input('rackPrice', rackPrice)
-      .input('netPrice', netPrice)
-      .input('tax', tax)
-      .execute('UpdateService');
+      .input('pId', id)
+      .input('pName', pName)
+      .input('pCategory', pCategory)
+      .input('pDescription', pDescription)
+      .input('pRackPrice', pRackPrice)
+      .input('pNetPrice', pNetPrice)
+      .input('pTax', pTax)
+      .execute('pa_UpdateService');
 
     const resultMessage = result.recordset[0].Msg;
 

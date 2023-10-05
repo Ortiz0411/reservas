@@ -35,17 +35,17 @@ export const Contact = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <h2>Get In Touch</h2>
+                <h2>Contactenos</h2>
                 <form ref={form} onSubmit={sendEmail}>
                   <Row>
                    <Col size={12} sm={6} className="px-1">
-                      <input type="text"  name="user_name" placeholder="First Name"/>
+                      <input type="text"  name="user_name" placeholder="Nombre"/>
                     </Col>
                     <Col size={12} sm={6} className="px-1">
-                      <input type="email" name="user_email" placeholder="Email Address"/>
+                      <input type="email" name="user_email" placeholder="Email"/>
                     </Col>
                     <Col size={12} className="px-1">
-                      <textarea rows="6" name="message" placeholder="Message"></textarea>
+                      <textarea rows="6" name="message" placeholder="Mensaje"></textarea>
                       <button type="submit"><span>submit</span></button>
                     </Col>
                   

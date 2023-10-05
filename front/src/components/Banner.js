@@ -56,8 +56,7 @@ export const Banner = () => {
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <h1>{`RINCON COROBICI`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "RAFTING", "TOURS", "RESTAURANTE" ]'><span className="wrap">{text}</span></span></h1>
                   <p>RCR Rafting es una empresa de turismo de aventura ubicada en Cañas Guanacaste, cantón considerado por muchos como el corazón de toda la provincia y punto neurálgico que comunica diferentes regiones de Costa Rica como Arenal, Monteverde Manuel Antonio entre otras con la provincia Guanacaste.
-
-Contamos con más de 15 años de experiencia, organizando tours de rafting inolvidables a miles de turistas...</p>
+                    Contamos con más de 15 años de experiencia, organizando tours de rafting inolvidables a miles de turistas...</p>
                   <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>

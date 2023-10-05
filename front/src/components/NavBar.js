@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import logo from '../assets/img/logo.png';
-import navIcon1 from '../assets/img/nav-icon1.svg';
+import navIcon1 from '../assets/img/tripad.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
 import {  Row, Col } from "react-bootstrap";
@@ -21,19 +21,19 @@ export const NavBar = () => {
   const [service, setService] = useState([]);
   const [ setSearch ] = useState("");
   const [form1, setFormClient] = useState({
-    name: '',
-    lastname: '',
-    email: '',
-    tel: '',
+    pName: '',
+    pLastname: '',
+    pEmail: '',
+    pTel: '',
   });
   const [form2, setFormRes] = useState({
-    date: Date,
+    pDate: Date,
   });
 
   const [form3, setFormServ] = useState({
-    time: '',
-    pax: '',
-    id: '',
+    pTime: '',
+    pPax: '',
+    pId: '',
   });
   
 
@@ -72,17 +72,6 @@ export const NavBar = () => {
     } catch (error) {
       console.log(error.message);
     }
-  };
-
-
-  const selectService = (client) => {
-    setFormClient({
-      
-      name: client.name,
-      lastName: client.lastName,
-      gmail: client.gmail,
-      tel: client.tel,
-    });
   };
 
   const handleChange = async (e) => {
@@ -142,7 +131,7 @@ export const NavBar = () => {
   }
 
   return (
-    <div>
+  
          <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
           <Navbar.Brand href="/">
@@ -153,15 +142,16 @@ export const NavBar = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+            <Nav.Link href="get" >Eventos</Nav.Link>
               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
               <Nav.Link href="#restaurants" className={activeLink === 'restaurants' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('restaurants')}>Restaurante</Nav.Link>
               <Nav.Link href="#tours" className={activeLink === 'tours' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('tours')}>Tour</Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
-                <a href="#"><img src={navIcon1} alt="" /></a>
-                <a href="#"><img src={navIcon2} alt="" /></a>
-                <a href="#"><img src={navIcon3} alt="" /></a>
+                <a href="https://www.tripadvisor.com.mx/Attraction_Review-g1933212-d4184706-Reviews-RCR_Rafting_Guanacaste-Canas_Province_of_Guanacaste.html"><img src={navIcon1} alt="" /></a>
+                <a href="https://www.facebook.com/profile.php?id=100063453527949"><img src={navIcon2} alt="" /></a>
+                <a href="get"><img src={navIcon3} alt="" /></a>
               </div>
 
               <button className="vvd" onClick={() => {  toggleModalInsertarClient(); }}><span>Reservar</span></button>
@@ -172,9 +162,7 @@ export const NavBar = () => {
           </Navbar.Collapse>
           
         </Container>
-      </Navbar>
-
-      <Modal isOpen={modalInsertarClient} className="modal-insertar-client">
+        <Modal isOpen={modalInsertarClient} className="modal-insertar-client">
             <ModalHeader style={{ display: 'block' }}>
               <span style={{ float: 'right' }} onClick={() => toggleModalInsertarClient()}>x</span>
             </ModalHeader>
@@ -183,33 +171,33 @@ export const NavBar = () => {
               <Row>
                   <h2>Agregar Cliente</h2>
                    <Col size={12} sm={6} className="px-2">
-                      <input type="text"  className="custom-input" name="name" placeholder="Nombre" onChange={handleChange}  value={form1 ? form1.name : ''} />
+                      <input type="text"  className="custom-input" name="pName" placeholder="Nombre" onChange={handleChange}  value={form1 ? form1.pName : ''} />
                     </Col>
                     <Col size={12} sm={6} className="px-2">
-                      <input type="text" className="custom-input" name="lastname" placeholder="Apellido" onChange={handleChange} value={form1 ? form1.lastname : ''}/>
+                      <input type="text" className="custom-input" name="pLastname" placeholder="Apellido" onChange={handleChange} value={form1 ? form1.pLastname : ''}/>
                     </Col>
                     <Col size={12} sm={6} className="px-2">
-                      <input type="email"  className="custom-input" name="email" placeholder="Correo" onChange={handleChange} value={form1 ? form1.email : ''}/>
+                      <input type="email"  className="custom-input" name="pEmail" placeholder="Correo" onChange={handleChange} value={form1 ? form1.pEmail : ''}/>
                     </Col>
                     <Col size={12} sm={6} className="px-2">
-                      <input type="text"  className="custom-input" name="tel" placeholder="Telefono" onChange={handleChange} value={form1 ? form1.tel : ''}/>
+                      <input type="text"  className="custom-input" name="pTel" placeholder="Telefono" onChange={handleChange} value={form1 ? form1.pTel : ''}/>
                     </Col>
                   </Row>
                   <Row>
                   <h2>Reservar</h2>
                    <Col size={12} sm={12} className="px-2">
-                      <input type="date"  className="custom-input" name="date" placeholder="Fecha" onChange={handleChangeRes}  value={form2 ? form2.date : ''} />
+                      <input type="date"  className="custom-input" name="pDate" placeholder="Fecha" onChange={handleChangeRes}  value={form2 ? form2.pDate : ''} />
                     </Col>
                   </Row>
                   <Row>
                   <h2>Servicios</h2>
                   <Col size={12} sm={6} className="px-2">
-                      <input type="time"  className="custom-input" name="time" placeholder="Hora" onChange={handleChangeSer} value={form3 ? form3.time : ''}/>
+                      <input type="time"  className="custom-input" name="pTime" placeholder="Hora" onChange={handleChangeSer} value={form3 ? form3.pTime : ''}/>
                     </Col>
                     <Col size={12} sm={6} className="px-2">
-                      <input type="text"  className="custom-input" name="pax" placeholder="cantidad de personas" onChange={handleChangeSer} value={form3 ? form3.pax : ''}/>
+                      <input type="text"  className="custom-input" name="pPax" placeholder="Cantidad de personas" onChange={handleChangeSer} value={form3 ? form3.pPax : ''}/>
                     </Col>
-                  <select name="id" className="form-control" onChange={handleChangeSer}  value={form3 ? form3.id : ''}>
+                  <select name="pId" className="form-control" onChange={handleChangeSer}  value={form3 ? form3.pId : ''}>
                       {service.map((elemento) => (
                         <option  key={elemento.id} value={elemento.id}>
                           {elemento.name}
@@ -226,7 +214,14 @@ export const NavBar = () => {
             </ModalFooter>
           </Modal>
 
-    </div>
+      </Navbar>
 
+      
+
+          
+
+     
+      
+    
   )
 }

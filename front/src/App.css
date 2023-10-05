@@ -88,6 +88,7 @@ nav.navbar {
   top: 0;
   z-index: 9999;
   transition:  0.32s ease-in-out;
+  
 }
 nav.navbar.scrolled {
   padding: 0px 0;
@@ -598,55 +599,43 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   opacity: 0.8;
 }
 
+/************ getReserva Css ************/
 
+.e {
+  margin-top: 0;
+  padding: 130px 0 100px 0;
+  background-image: url('./assets/img/fondo.png');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-
-
-
-
-
-
-
-
-
-.App {
-  text-align: center;
+}
+.custom {
+  width: 30%;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(3, 3, 3, 0.5);
+  border-radius: 20px;
+  color: #070707;
+  margin: 0 0 8px 0;
+  padding: 18px 26px;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease-in-out;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.custom:focus{
+  background: rgb(255, 255, 255);
+  color: #121212;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.custom::placeholder{
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.center-content {
-  text-align: center;
+.custom:focus::placeholder{
+  color: #000000;
+  opacity: 0.8;
 }

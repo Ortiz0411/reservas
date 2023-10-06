@@ -12,6 +12,7 @@ export const Banner = () => {
   const [index, setIndex] = useState(1);
   const toRotate = [ "RAFTING", "TOURS", "RESTAURANTE" ];
   const period = 2000;
+  const [activeLink, setActiveLink] = useState('conect');
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -20,6 +21,11 @@ export const Banner = () => {
 
     return () => { clearInterval(ticker) };
   }, [text])
+
+  const onUpdateActiveLink = (value) => {
+    setActiveLink(value);
+  }
+
 
   const tick = () => {
     let i = loopNum % toRotate.length;
@@ -57,7 +63,8 @@ export const Banner = () => {
                 <h1>{`RINCON COROBICI`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "RAFTING", "TOURS", "RESTAURANTE" ]'><span className="wrap">{text}</span></span></h1>
                   <p>RCR Rafting es una empresa de turismo de aventura ubicada en Cañas Guanacaste, cantón considerado por muchos como el corazón de toda la provincia y punto neurálgico que comunica diferentes regiones de Costa Rica como Arenal, Monteverde Manuel Antonio entre otras con la provincia Guanacaste.
                     Contamos con más de 15 años de experiencia, organizando tours de rafting inolvidables a miles de turistas...</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  <button  href="#connect" className={activeLink === 'connect' ? 'active link' : 'link'} onClick={() => onUpdateActiveLink('connect')}>Contactanos<ArrowRightCircle size={25} /></button >
+                 
               </div>}
             </TrackVisibility>
           </Col>

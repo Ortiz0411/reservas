@@ -12,6 +12,19 @@ export const addResClient = async (req, res) => {
     pool.close();
 };
 
+export const addRes = async (req, res) => {
+  const pool = await getConnection();
+  const result = await pool
+  .request()
+  .input('pAgency', req.body.pAgency)
+  .input('pDate', req.body.pDate)
+  .execute('pa_AddRes');
+
+  const resultMessage = result.recordset[0].Msg;
+    res.json( {message: resultMessage});
+    pool.close();
+};
+
 export const getResInfo = async(req, res) => {
   const pool = await getConnection();
 

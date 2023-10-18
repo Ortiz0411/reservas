@@ -41,4 +41,5 @@ export const updateAgency = async (req, res) => {
     const resultMessage = result.recordset[0].Message;
     
     res.json({ message: resultMessage });
+    pool.close();
 };

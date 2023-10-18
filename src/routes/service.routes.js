@@ -5,7 +5,7 @@ import { addRes, addResClient, addRest, getResClient, getResId, getResInfo } fro
 import { addServiceDetail, } from "../controllers/servicedet.controller";
 import { addAgency, updateAgency } from "../controllers/agency.controller";
 import { addContract, deleteContract, getAllContracts, getContracts } from "../controllers/contract.controller";
-import { login } from "../controllers/user.controller";
+import { changePassword, login } from "../controllers/user.controller";
 
 const router = Router()
 
@@ -14,6 +14,7 @@ router.post('/client/addClient', addClient);
 
 //User
 router.post('/user/login', login);
+router.put('/user/changePassword/:pId', changePassword);
 
 //Agency
 router.post('/agency/addAgency', addAgency);

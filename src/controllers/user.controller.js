@@ -12,3 +12,24 @@ export const login = async (req, res) => {
     res.json( {message: resultMessage});
     pool.close();
 };
+
+export const changePassword = async (req, res) => {
+
+    const { pId } = req.params;
+    const pool = await getConnection();
+
+    const {
+        pPass
+    } = req.body;
+
+    const result = await pool
+    .request()
+    .input('pId', pId)
+    .input('pPass', pPass)
+    .execute('pa_ChangePassword');
+
+    const resultMessage = result.recordset[0].Msg;
+    res.json( {message: resultMessage});
+    pool.close();
+
+};
